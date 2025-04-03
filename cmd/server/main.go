@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"url-shortener/internal/handler"
@@ -13,9 +14,7 @@ func main() {
 	fmt.Printf("Server running on http://localhost:%d\n", PORT)
 
 	http.HandleFunc("/", handler.RootHandler)
-	http.HandleFunc("/create", handler.CreateHandler)
+	http.HandleFunc("/url", handler.UrlHandler)
 
-	if err := http.ListenAndServe(fmt.Sprintf(":%d", PORT), nil); err != nil {
-		fmt.Println("Error starting server:", err)
-	}
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", PORT), nil))
 }
