@@ -11,6 +11,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusBadRequest)
 		return
 	}
+
 	if r.URL.Path == "/test" {
 		fmt.Fprintf(w, "Server is running")
 		return

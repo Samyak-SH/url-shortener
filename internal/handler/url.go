@@ -60,8 +60,8 @@ func UrlHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		createUrl(&w, r)
 		return
-	} else if r.Method == "GET" {
-		GetUrl(&w, r)
+	} else {
+		http.Error(w, "Method not allowed", http.StatusBadGateway)
 	}
 
 }
