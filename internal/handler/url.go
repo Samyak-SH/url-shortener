@@ -15,6 +15,8 @@ func CreateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Println(r.Body)
+
 	var request struct {
 		URL string `json:"original_url"`
 	}
